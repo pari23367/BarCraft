@@ -1,12 +1,10 @@
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Absolutely! Here's your complete, updated `README.md` with clear, short explanations for each tool — especially **Axios**, **Zustand**, and **shadcn/ui** — keeping it beginner-friendly and ready for your GitHub project or final submission.
+ 
 
 ---
-
-### ✅ Full `README.md` (Updated with explanations)
+ 
 
 ````md
 # 🍸 CocktailApp
