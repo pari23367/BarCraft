@@ -23,9 +23,9 @@ A fast and modern cocktail discovery web app built with React, Vite, and Tailwin
 | Vite             | Build tool for fast development and hot module reload                   |
 | Tailwind CSS     | Utility-based CSS for styling responsive UIs quickly                    |
 | React Router     | Adds navigation between pages without full reload                       |
-| Axios *(optional)*      | Makes API calls easier and cleaner than native `fetch()`                |
-| Zustand *(optional)*    | Lightweight tool for global state (like a selected cocktail)             |
-| shadcn/ui *(optional)*  | Ready-to-use stylish UI components built with Tailwind (e.g., buttons) |
+| Axios            | Makes API calls easier and cleaner than native `fetch()`                |
+| Zustand          | Lightweight tool for global state (like a selected cocktail)            |
+| shadcn/ui        | Ready-to-use stylish UI components built with Tailwind (e.g., buttons)  |
 
 ---
 
