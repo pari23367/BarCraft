@@ -113,8 +113,7 @@ const fetchCocktails = async () => {
 
 ## 🌿 Optional Enhancements
 
-You can add these if your app gets bigger:
-
+ 
 * **Zustand or React Context** — Manage global state like "selected cocktail" across routes
 * **shadcn/ui** — Use stylish UI components to save time on design
 
@@ -128,29 +127,9 @@ You can add these if your app gets bigger:
 * [Zustand Docs](https://github.com/pmndrs/zustand)
 * [shadcn/ui Docs](https://ui.shadcn.com/docs)
 
+ 
 ---
 
-## 🙌 Contributing
-
-Pull requests are welcome! For big features or changes, feel free to open an issue first.
-
----
-
-## 📝 License
-
-This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
-
-```
-
----
-
-Let me know if you'd like:
-- A section for environment variables/API keys
-- Deployment steps (Netlify, Vercel, etc.)
-- Screenshots section or badges
-
-This `README.md` is good to go for class projects or GitHub portfolios!
-```
 
 
 ## Planned UI
