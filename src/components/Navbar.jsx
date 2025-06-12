@@ -34,10 +34,11 @@ export default function Navbar() {
           🍸 CocktailApp
         </Link>
         <div className="hidden md:flex space-x-6 items-center text-sm font-medium">
-          <Link to="/" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Home</Link>
-          <Link to="/search" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Search</Link>
-          <Link to="/substitutes" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Substitutes</Link>
-          <Link to="/details" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Details</Link>
+          <a href="#home" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Home</a>
+          <a href="#aboutus" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">About Us</a>
+          <a href="#popular" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Popular Cocktails</a>
+          <a href="#subs" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Substitutes</a>
+          <a href="#section5" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Contact Us</a>
           <button onClick={() => setIsDark(!isDark)} className="p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition">
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
@@ -65,8 +66,5 @@ export default function Navbar() {
       )}
     </nav>
   
-   
-     
- 
   );
 }

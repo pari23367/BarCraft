@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center min-h-[calc(100vh-64px)]">
       
-      <section id="section1"
+      <section id="home"
         className="section"
         style={{ 
           backgroundImage: 'url(${herobg})',
@@ -40,7 +40,7 @@ export default function Home() {
         </section>
 
 
-        <section id="section2" className="section">
+        <section id="aboutus" className="section">
 
           <h2 style={{marginTop: '5rem'}}>About Us</h2>
           <p style={{ fontSize: '1.5rem', margin: '20px', paddingInline: '6.5rem'}}>
@@ -52,7 +52,7 @@ export default function Home() {
         </section>
 
 
-        <section id="section3" className="section" style={{background: '#E7F5F5', height: '100vh'}}>
+        <section id="popular" className="section" style={{background: '#E7F5F5', height: '100vh'}}>
 
             <h2 style={{marginTop: '5rem'}}>Some Popular Cocktails</h2>
 
@@ -60,7 +60,7 @@ export default function Home() {
         </section>
 
 
-        <section id="section4" className="section" style={{background: '#D9681C', height: '100vh'}}>
+        <section id="subs" className="section" style={{background: '#D9681C', height: '100vh'}}>
 
           <h2 style={{marginTop: '5rem'}}>Find Substitutions</h2>
 

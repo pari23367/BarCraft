@@ -13,4 +13,9 @@ html.dark body {
   color: white;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 /*hello*/
