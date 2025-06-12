@@ -1,10 +1,11 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
+
 export default function App() {
   return (
-    <div className="min-h-screen w-full bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+<div className="bg-white text-black dark:bg-black dark:text-white min-h-screen transition-colors duration-300">
       <Navbar />
-      <main className="w-full px-6 py-8">
+      <main className="w-full">
         <Outlet />
       </main>
     </div>

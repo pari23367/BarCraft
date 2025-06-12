@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+.section {
+  padding: 0rem;
+  font-size: 2rem;
+  color: #000;
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}

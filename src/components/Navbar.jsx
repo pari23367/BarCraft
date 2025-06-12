@@ -1,23 +1,20 @@
 import { useState, useEffect } from 'react';
+import { Moon, Sun, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Sun, Moon, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [isDark, setIsDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Load theme preference on mount
   useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
+    const stored = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDarkMode = storedTheme === 'dark' || (!storedTheme && prefersDark);
-    setIsDark(isDarkMode);
-    document.documentElement.classList.toggle('dark', isDarkMode);
+    const init = stored === 'dark' || (!stored && prefersDark);
+    setIsDark(init);
+    document.documentElement.classList.toggle('dark', init);
   }, []);
 
-  // Apply theme class whenever isDark changes
   useEffect(() => {
-     console.log("Theme is now:", isDark ? "Dark" : "Light");
     if (isDark) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
@@ -28,30 +25,26 @@ export default function Navbar() {
   }, [isDark]);
 
   return (
-    <nav className="sticky top-0 z-50 w-full backdrop-blur-md bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-b border-gray-300 dark:border-gray-700 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-
-        {/* Logo */}
-        <Link to="/" className="flex items-center text-xl font-bold text-purple-700 dark:text-purple-400">
-          🍸 <span className="ml-1">CocktailApp</span>
+    
+         
+ 
+<nav className="sticky top-0 z-50 w-full bg-white dark:bg-black text-black dark:text-white backdrop-blur-lg shadow border-b border-gray-200 dark:border-gray-800 transition-all">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
+        <Link to="/" className="text-xl font-extrabold text-purple-700 dark:text-purple-400 flex items-center">
+          🍸 CocktailApp
         </Link>
-
-        {/* Desktop Links + Toggle */}
-        <div className="hidden md:flex items-center space-x-6">
-          <Link to="/" className="text-gray-700 dark:text-gray-200 hover:text-purple-500 transition">Home</Link>
-          <Link to="/search" className="text-gray-700 dark:text-gray-200 hover:text-purple-500 transition">Search</Link>
-          <Link to="/substitutes" className="text-gray-700 dark:text-gray-200 hover:text-purple-500 transition">Substitutes</Link>
-          <Link to="/details" className="text-gray-700 dark:text-gray-200 hover:text-purple-500 transition">Details</Link>
-          <button
-            onClick={() => setIsDark(!isDark)}
-            className="text-gray-700 dark:text-gray-200 hover:text-purple-500 transition"
-          >
-            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+        <div className="hidden md:flex space-x-6 items-center text-sm font-medium">
+          <Link to="/" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Home</Link>
+          <Link to="/search" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Search</Link>
+          <Link to="/substitutes" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Substitutes</Link>
+          <Link to="/details" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Details</Link>
+          <button onClick={() => setIsDark(!isDark)} className="p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition">
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
         </div>
 
-        {/* Mobile menu icon */}
-        <div className="md:hidden flex items-center space-x-4">
+        {/* Mobile */}
+<div className="md:hidden px-4 pt-2 pb-4 space-y-2 bg-white dark:bg-black transition-all">
           <button onClick={() => setIsDark(!isDark)} className="text-gray-700 dark:text-gray-200">
             {isDark ? <Sun size={20} /> : <Moon size={20} />}
           </button>
@@ -63,13 +56,17 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden px-4 pt-2 pb-4 space-y-2 bg-white/80 dark:bg-gray-900/80 transition-all">
-          <Link to="/" className="block text-gray-700 dark:text-gray-200 hover:text-purple-500 transition">Home</Link>
-          <Link to="/search" className="block text-gray-700 dark:text-gray-200 hover:text-purple-500 transition">Search</Link>
-          <Link to="/substitutes" className="block text-gray-700 dark:text-gray-200 hover:text-purple-500 transition">Substitutes</Link>
-          <Link to="/details" className="block text-gray-700 dark:text-gray-200 hover:text-purple-500 transition">Details</Link>
+        <div className="md:hidden px-4 pt-2 pb-4 space-y-2 bg-white/80 dark:bg-gray-900/90 transition-all">
+          <Link to="/" className="block text-gray-700 dark:text-gray-200">Home</Link>
+          <Link to="/search" className="block text-gray-700 dark:text-gray-200">Search</Link>
+          <Link to="/substitutes" className="block text-gray-700 dark:text-gray-200">Substitutes</Link>
+          <Link to="/details" className="block text-gray-700 dark:text-gray-200">Details</Link>
         </div>
       )}
     </nav>
+  
+   
+     
+ 
   );
 }
