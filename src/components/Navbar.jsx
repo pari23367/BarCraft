@@ -30,15 +30,17 @@ export default function Navbar() {
  
 <nav className="sticky top-0 z-50 w-full bg-white dark:bg-black text-black dark:text-white backdrop-blur-lg shadow border-b border-gray-200 dark:border-gray-800 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
-        <Link to="/" className="text-xl font-extrabold text-purple-700 dark:text-purple-400 flex items-center">
-          🍸 CocktailApp
+        {/*<Link to="/" className="text-xl font-extrabold text-red-700 dark:text-red-400 flex items-center">
+          BarCraft
         </Link>
+        */}
+        <a href="#home" className="text-xl font-extrabold text-red-700 dark:text-red-400 flex items-center">BarCraft</a>
         <div className="hidden md:flex space-x-6 items-center text-sm font-medium">
-          <a href="#home" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Home</a>
-          <a href="#aboutus" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">About Us</a>
-          <a href="#popular" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Popular Cocktails</a>
-          <a href="#subs" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Substitutes</a>
-          <a href="#section5" className="hover:text-purple-500 transition text-gray-700 dark:text-gray-200">Contact</a>
+          <a href="#home" className="hover:text-red-300 transition text-gray-700 dark:text-gray-200">Home</a>
+          <a href="#aboutus" className="hover:text-red-300 transition text-gray-700 dark:text-gray-200">About Us</a>
+          <a href="#popular" className="hover:text-red-300 transition text-gray-700 dark:text-gray-200">Popular Cocktails</a>
+          <a href="#subs" className="hover:text-red-300 transition text-gray-700 dark:text-gray-200">Substitutes</a>
+          <a href="#section5" className="hover:text-red-300 transition text-gray-700 dark:text-gray-200">Contact</a>
           <button onClick={() => setIsDark(!isDark)} className="p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition">
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
