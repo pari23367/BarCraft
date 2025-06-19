@@ -7,8 +7,14 @@ export default {
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
   ],
+   safelist: [
+    'dark:bg-black', // 👈 add this if Tailwind purging it
+    'bg-white',
+    'bg-[#FF8C8C]',
+    'dark:bg-[#111]',
+  ],
   theme: {
     extend: {},
   },
   plugins: [],
-};
+}; 

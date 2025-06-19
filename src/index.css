@@ -8,13 +8,16 @@ body {
   color: black;
 }
 
-html.dark body {
-  background-color: black;
-  color: white;
-}
+ 
 
 html {
   scroll-behavior: smooth;
+}
+html, body {
+  background-color: white;
+}
+html.dark body {
+  background-color: black;
 }
 
 

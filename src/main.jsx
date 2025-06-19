@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Search from './pages/Search';
 import Substitutes from './pages/Substitutes';
 import Details from './pages/Details';
+import { ThemeProvider } from './context/ThemeContext';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider> {/*  WRAPPED HERE */}
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );
