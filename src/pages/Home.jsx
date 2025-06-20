@@ -34,44 +34,45 @@ export default function Home() {
           color: 'white'
         }}
       >
-        <h1 className='text-3xl font-bold text-red-700' style={{ textAlign: 'left', marginLeft: '50px', marginTop: '300px' }}>
+        <h1 className='text-3xl font-bold text-red-800' style={{ textAlign: 'left', marginLeft: '50px', marginTop: '300px' }}>
           Welcome to
         </h1>
-        <h1 className='text-8xl font-bold text-red-700' style={{ textAlign: 'left', marginLeft: '40px' }}>
+        <h1 className='text-8xl font-bold text-red-800' style={{ textAlign: 'left', marginLeft: '40px' }}>
           BarCraft
         </h1>
       </section>
 
-      <section id="aboutus" className="section text-black dark:text-white">
-        <h2 className="mt-20">About Us</h2>
-        <p className="text-xl m-5 px-[6.5rem]">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas felis ipsum, porttitor in dapibus vel, placerat vel massa. Curabitur nec justo et purus mollis euismod et ut enim. Pellentesque feugiat gravida sapien, a egestas libero imperdiet sed. Curabitur lectus risus, vehicula id pulvinar id, bibendum ac turpis. Donec enim massa, fermentum id facilisis a, scelerisque quis erat. Nam ut ipsum vel neque hendrerit suscipit. Morbi tincidunt metus nec.
+      <section id="aboutus" className={`section ${isDark ? "bg-[#360401] text-white" : "bg-[#ffbdbd] text-red-900"} transition-colors duration-500`}>
+        <p className="text-5xl mt-15 mb-10" style={{fontFamily: 'HeadingFont'}}>About Us</p>
+        <p className="text-lg px-[4rem]">
+          BarCraft is your behind-the-bar assistant, built to help bartenders find smart substitutions for cocktail ingredients in seconds. Whether you're working with a limited stock or crafting a new twist on a classic, BarCraft helps you make every drink possible—with creativity, flexibility, and confidence.
+          <br></br>
+          <br></br>
+          Born out of a passion for mixology and the real challenges bartenders face, BarCraft makes experimenting and improvising easier than ever. It’s not just about replacements—it’s about unlocking possibilities, reducing waste, and keeping the bar flowing smoothly.
         </p>
-        <div className="bg-[#FF8C8C] h-[30px] w-full my-12"></div>
+        <div className="bg-[#ffffff] h-[20px] w-full my-12"></div>
       </section>
 
-    <section
-  id="popular"
-  className="w-full h-screen bg-[#FF8C8C] dark:bg-[#111] text-black dark:text-white transition-colors duration-500"
->
-  <div className="max-w-7xl mx-auto px-4">
-    <h2 className="mt-20">Some Popular Cocktails</h2>
-    {/* your content here */}
-  </div>
-</section>
+
+    <section id="popular" className={`section ${isDark ? "w-full h-screen bg-[#000000] text-white" : "w-full h-screen bg-[#ffffff] text-red-900"} transition-colors duration-500`}> {/*className="w-full h-screen bg-[#FF8C8C] dark:bg-[#000] text-black dark:text-white transition-colors duration-500">*/}
+      <div>
+        <h1 className="text-5xl mt-20">Some Popular Cocktails</h1>
+        {/* your content here */}
+      </div>
+    </section>
 
 
-      <section id="subs" className="section h-screen bg-[#FF8C8C] dark:bg-[#111] text-black dark:text-white transition-colors duration-500">
-        <h2 className="mt-20">Find Substitutions</h2>
-        <h5>Enter Your Ingredients Below-</h5>
-        <div className="p-8">
+      <section id="subs" className={`section ${isDark ? "w-full h-screen bg-[#360401] text-white" : "w-full h-screen bg-[#ffbdbd] text-red-900"} transition-colors duration-500`}> {/*className="w-full h-screen h-screen bg-[#FF8C8C] dark:bg-[#675959] text-black dark:text-white transition-colors duration-500">*/}
+        <h2 className="text-5xl mt-20 mb-8">Find Substitutions</h2>
+        <h3 className='text-3xl'>Enter Your Ingredients Below-</h3>
+        <div className="flex flex-col items-center justify-center h-full">
           <input
             type="text"
             placeholder="Type and press Enter"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="p-2 text-base w-[300px] mb-4 border border-gray-300 rounded"
+            className={`p-2 text-base w-[300px] mb-4 border ${isDark ? "border-gray-300 rounded" : "border-black-900 rounded"} transition-colors duration-500`}
           />
           <ul>
             {items.map((item, index) => (
@@ -83,7 +84,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="section5" className="section text-black dark:text-white">Section 5 Content</section>
+      <section id="section5" className={`section ${isDark ? "w-full h-screen bg-[#000000] text-white" : "w-full h-screen bg-[#ffffff] text-red-900"} transition-colors duration-500`}>
+        <h2 className="text-5xl mt-20 mb-8">Contact Us</h2>
+      </section>
     </div>
   );
 }

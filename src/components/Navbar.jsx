@@ -12,7 +12,7 @@ export default function Navbar() {
   text-black dark:text-white 
   border-b border-gray-200 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
-        <a href="#home" className="text-xl font-extrabold text-red-700 dark:text-red-400 flex items-center">
+        <a href="#home" className="text-xl font-extrabold text-red-700 dark:text-[#d76060] flex items-center" style={{ fontFamily: 'HeadingFont' }}>
           BarCraft
         </a>
 

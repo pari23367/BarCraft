@@ -3,6 +3,21 @@
   text-align: center;
 }
 
+@font-face {
+  font-family: 'HeadingFont';
+  src: url('./assets/fonts/CAOOLI.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BodyFont';
+  src: url('./assets/fonts/tommy.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -40,8 +55,6 @@
 }
 .section {
   font-size: 2rem;
-  color: #000;
-  background-color: white;
 
   display: flex;
   flex-direction: column;
