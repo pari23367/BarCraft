@@ -3,6 +3,8 @@ import darkHero from '../assets/blackhero.png';
 import { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import '../App.css';
+import PopularCocktails from '../components/PopularCocktails';
+
 
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
@@ -55,10 +57,11 @@ export default function Home() {
 
 
     <section id="popular" className={`section ${isDark ? "w-full h-screen bg-[#000000] text-white" : "w-full h-screen bg-[#ffffff] text-red-900"} transition-colors duration-500`}> {/*className="w-full h-screen bg-[#FF8C8C] dark:bg-[#000] text-black dark:text-white transition-colors duration-500">*/}
-      <div>
-        <h1 className="text-5xl mt-20">Some Popular Cocktails</h1>
-        {/* your content here */}
-      </div>
+     <div className="w-full">
+  <h1 className="text-5xl mt-20 mb-8 text-center">Some Popular Cocktails</h1>
+  <PopularCocktails />
+</div>
+
     </section>
 
 

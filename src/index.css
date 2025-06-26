@@ -20,10 +20,15 @@ html {
 }
 html, body {
   background-color: white;
+  color: black;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
-html.dark body {
+
+html.dark, html.dark body {
   background-color: black;
+  color: white;
 }
+
 
 
 /*hello*/
