@@ -1,5 +1,6 @@
 // src/components/PopularCocktails.jsx
 import { useEffect, useState } from "react";
+import { useTheme } from '../context/ThemeContext';
 
 const API_BASE = "/api/cocktailRecipe-search";
 const POPULAR_IDS = ["ID_000058", "ID_000089", "ID_000145"];
@@ -7,6 +8,7 @@ const POPULAR_IDS = ["ID_000058", "ID_000089", "ID_000145"];
 export default function PopularCocktails() {
   const [cocktails, setCocktails] = useState([]);
   const [error, setError] = useState("");
+  const {isDark} = useTheme();
 
   useEffect(() => {
     const fetchPopular = async () => {
@@ -37,21 +39,22 @@ export default function PopularCocktails() {
   }
 
   return (
-    <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 w-full px-8">
+    <div className="mb-15 grid gap-10 sm:grid-cols-2 md:grid-cols-3 w-full px-8">
       {cocktails.map((cocktail, idx) => (
         <div
           key={idx}
-          className="bg-white dark:bg-[#1a1a1a] text-black dark:text-white shadow-lg rounded-lg p-6"
-        >
-          <h2 className="text-2xl font-bold mb-2">{cocktail.Name}</h2>
-          <p><strong>Method:</strong> {cocktail.Method || "Unknown"}</p>
-          <p><strong>Prep Time:</strong> {cocktail["Prep_Time"] || "N/A"}</p>
+          className={` ${isDark ? "bg-[#360401] text-white shadow-lg rounded-lg p-6" : "bg-[#ffbdbd] text-black shadow-lg rounded-lg p-6"}transition-colors duration-500`}>
+          <div className="items-center justify-center mb-4 bg-white text-black">
+          <h3 className="text-3xl m-7">{cocktail.Name}</h3>
+          </div>
+          <p className="text-xl"><strong>Method:</strong> {cocktail.Method || "Unknown"}</p>
+          <p className="text-xl"><strong>Prep Time:</strong> {cocktail["Prep_Time"] || "N/A"}</p>
           {cocktail.Link && (
             <a
               href={cocktail.Link}
               target="_blank"
               rel="noreferrer"
-              className="text-blue-500 hover:underline text-sm mt-2 block"
+              className={` ${isDark ? "text-[#ffbdbd] hover:underline text-lg m-5 block" : "text-[#540a06] hover:underline text-lg m-5 block"}transition-colors duration-500`}
             >
               View Recipe →
             </a>

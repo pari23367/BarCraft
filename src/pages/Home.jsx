@@ -57,9 +57,9 @@ export default function Home() {
       </section>
 
 
-    <section id="popular" className={`section ${isDark ? "w-full h-screen bg-[#000000] text-white" : "w-full h-screen bg-[#ffffff] text-red-900"} transition-colors duration-500`}> {/*className="w-full h-screen bg-[#FF8C8C] dark:bg-[#000] text-black dark:text-white transition-colors duration-500">*/}
+    <section id="popular" className={`section ${isDark ? "w-full bg-[#000000] text-white" : "w-full bg-[#ffffff] text-red-900"} transition-colors duration-500`}>
       <div>
-        <h1 className="text-5xl mt-20">Some Popular Cocktails</h1>
+        <h1 className="text-5xl m-15">Some Popular Cocktails</h1>
         <PopularCocktails />
       </div>
     </section>
