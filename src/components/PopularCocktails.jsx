@@ -1,7 +1,7 @@
 // src/components/PopularCocktails.jsx
 import { useEffect, useState } from "react";
 
-const API_BASE = "http://192.168.1.92:7777/cocktailRecipe-search";
+const API_BASE = "/api/cocktailRecipe-search";
 const POPULAR_IDS = ["ID_000058", "ID_000089", "ID_000145"];
 
 export default function PopularCocktails() {
