@@ -26,7 +26,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-[calc(100vh-64px)]">
+    <div className="flex flex-col justify-center items-center min-h-screen">
 
       <section
         id="home"
@@ -36,7 +36,9 @@ export default function Home() {
           color: 'white'
         }}
       >
-        <h1 className='text-3xl font-bold text-red-800' style={{ textAlign: 'left', marginLeft: '50px', marginTop: '300px' }}>
+        {/*<h1 className='text-3xl font-bold text-red-800' style={{ textAlign: 'left', marginLeft: '50px', marginTop: '300px' }}>*/}
+        
+        <h1 className="text-3xl font-bold text-red-800 ml-10 mt-60 text-left">
           Welcome to
         </h1>
         <h1 className='text-8xl font-bold text-red-800' style={{ textAlign: 'left', marginLeft: '40px' }}>
@@ -87,8 +89,12 @@ export default function Home() {
         </div>
       </section>
 
+
+
       <section id="section5" className={`section ${isDark ? "w-full h-screen bg-[#000000] text-white" : "w-full h-screen bg-[#ffffff] text-red-900"} transition-colors duration-500`}>
         <h2 className="text-5xl mt-20 mb-8">Contact Us</h2>
+
+        
       </section>
     </div>
   );
