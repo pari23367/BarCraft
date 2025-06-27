@@ -3,7 +3,7 @@ import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 export default function Navbar() {
-  const { isDark, setIsDark } = useTheme(); // ✅ global theme state
+  const { isDark, setIsDark } = useTheme(); 
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (

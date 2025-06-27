@@ -8,7 +8,7 @@ export default {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
    safelist: [
-    'dark:bg-black', // 👈 add this if Tailwind purging it
+    'dark:bg-black', 
     'bg-white',
     'bg-[#FF8C8C]',
     'dark:bg-[#111]',

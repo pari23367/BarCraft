@@ -89,11 +89,51 @@ export default function Home() {
 
 
 
-      <section id="section5" className={`section ${isDark ? "w-full h-screen bg-[#000000] text-white" : "w-full h-screen bg-[#ffffff] text-red-900"} transition-colors duration-500`}>
-        <h2 className="text-5xl mt-20 mb-8">Contact Us</h2>
+      <section
+  id="section5"
+  className={`section ${isDark ? "bg-black text-white" : "bg-white text-red-900"} transition-colors duration-500 px-22 py-16`}
+>
+  <h2 className="text-5xl font-bold mb-12 text-center">Contact Us</h2>
 
-         
-      </section>
+  <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12">
+
+    {/* Left Side: Contact Info */}
+    <div className="space-y-5 text-lg leading-relaxed">
+      <p>
+        <strong>Prof. Ganesh Bagler</strong><br />
+        Center for Computational Biology<br />
+        Indraprastha Institute of Information Technology Delhi (IIIT Delhi)<br />
+        R&D Block, Okhla Phase III, Near Govindpuri Metro Station<br />
+        New Delhi, India – 110020
+      </p>
+
+      <p>
+        <strong>Email:</strong>{" "}
+        <a
+          href="mailto:bagler+FoodProcessing@iiitd.ac.in"
+          className="underline hover:text-red-600 dark:hover:text-red-300"
+        >
+          bagler+FoodProcessing@iiitd.ac.in
+        </a><br />
+        <strong>Tel:</strong> +91-11-26907-443 (Work)
+      </p>
+    </div>
+
+    {/* Right Side: Google Map */}
+    <div className="rounded-lg overflow-hidden border border-gray-300 shadow-md h-[300px] w-full">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112093.69615836978!2d77.20000000000002!3d28.5452737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3759be54ec1%3A0xc7635467b7fda3e9!2sIIIT%20Delhi%20Innovation%20and%20Incubation%20Center!5e0!3m2!1sen!2sin!4v1719598761592!5m2!1sen!2sin"
+        width="100%"
+        height="100%"
+        allowFullScreen=""
+        loading="lazy"
+        className="w-full h-full border-none"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 }
