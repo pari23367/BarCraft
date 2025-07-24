@@ -8,6 +8,7 @@ import PopularCocktails from '../components/PopularCocktails';
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
   const [items, setItems] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null);
   const { isDark } = useTheme();
 
   const handleKeyDown = (e) => {
@@ -37,10 +38,10 @@ export default function Home() {
       >
         {/*<h1 className='text-3xl font-bold text-red-800' style={{ textAlign: 'left', marginLeft: '50px', marginTop: '300px' }}>*/}
         
-        <h1 className="text-3xl font-bold text-red-800 ml-10 mt-60 text-left">
+        <h1 className="text-3xl font-bold text-red-800 ml-10 mt-110 sm:mt-110 md:mt-60 text-left">
           Welcome to
         </h1>
-        <h1 className='text-8xl font-bold text-red-800' style={{ textAlign: 'left', marginLeft: '40px' }}>
+        <h1 className='text-8xl font-bold text-red-800' style={{ textAlign: 'left', marginLeft: '40px', textShadow: '3px 3px 1px black'}}>
           BarCraft
         </h1>
       </section>
@@ -65,10 +66,10 @@ export default function Home() {
     </section>
 
 
-      <section id="subs" className={`section ${isDark ? "w-full h-screen bg-[#360401] text-white" : "w-full h-screen bg-[#ffbdbd] text-red-900"} transition-colors duration-500`}> {/*className="w-full h-screen h-screen bg-[#FF8C8C] dark:bg-[#675959] text-black dark:text-white transition-colors duration-500">*/}
+      <section id="subs" className={`section ${isDark ? "w-full bg-[#360401] text-white" : "w-full bg-[#ffbdbd] text-red-900"} transition-colors duration-500`}> {/*className="w-full h-screen h-screen bg-[#FF8C8C] dark:bg-[#675959] text-black dark:text-white transition-colors duration-500">*/}
         <h2 className="text-5xl mt-20 mb-8">Find Substitutions</h2>
         <h3 className='text-3xl'>Enter Your Ingredients Below-</h3>
-        <div className="flex flex-col items-center justify-center h-full">
+        <div className="mt-5 mb-5 flex flex-col items-center justify-center h-full">
           <input
             type="text"
             placeholder="Type and press Enter"
@@ -77,13 +78,33 @@ export default function Home() {
             onKeyDown={handleKeyDown}
             className={`p-2 text-base w-[300px] mb-4 border ${isDark ? "border-gray-300 rounded" : "border-black-900 rounded"} transition-colors duration-500`}
           />
-          <ul>
+
+          <div className="flex flex-wrap gap-2 justify-center">
+            {items.map((item, index) => (
+              <button
+                key={index}
+                className={`px-4 py-2 rounded border ${isDark ? "bg-white text-black border-gray-300" : "bg-red-200 text-red-900 border-red-400"} transition`}
+                onClick={() => setSelectedItem(item)}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+
+          {selectedItem && (
+            <p className="mt-6 text-xl font-semibold mb-6">
+              Finding substitutions for: <span className="underline">{selectedItem}</span>
+            </p>
+          )}
+
+          {/*          <ul>
             {items.map((item, index) => (
               <li key={index} className="text-base my-1">
                 {item}
               </li>
             ))}
           </ul>
+*/}
         </div>
       </section>
 
@@ -91,7 +112,7 @@ export default function Home() {
 
       <section
   id="section5"
-  className={`section ${isDark ? "bg-black text-white" : "bg-white text-red-900"} transition-colors duration-500 px-22 py-16`}
+  className={`section ${isDark ? "w-full bg-black text-white" : "w-full bg-white text-red-900"} transition-colors duration-500 px-22 py-16`}
 >
   <h2 className="text-5xl font-bold mb-12 text-center">Contact Us</h2>
 
@@ -110,10 +131,10 @@ export default function Home() {
       <p>
         <strong>Email:</strong>{" "}
         <a
-          href="mailto:bagler+FoodProcessing@iiitd.ac.in"
+          href="mailto:bagler+barcraft@iiitd.ac.in"
           className="underline hover:text-red-600 dark:hover:text-red-300"
         >
-          bagler+FoodProcessing@iiitd.ac.in
+          bagler+barcraft@iiitd.ac.in
         </a><br />
         <strong>Tel:</strong> +91-11-26907-443 (Work)
       </p>
