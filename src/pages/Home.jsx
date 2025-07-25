@@ -83,7 +83,7 @@ export default function Home() {
             {items.map((item, index) => (
               <button
                 key={index}
-                className={`px-4 py-2 rounded border ${isDark ? "bg-white text-black border-gray-300" : "bg-red-200 text-red-900 border-red-400"} transition`}
+                className={`px-4 py-1 text-2xl rounded border ${isDark ? "bg-[#913530] text-black border-black" : "bg-red-200 text-red-900 border-red-900"} transition`}
                 onClick={() => setSelectedItem(item)}
               >
                 {item}
@@ -94,6 +94,9 @@ export default function Home() {
           {selectedItem && (
             <p className="mt-6 text-xl font-semibold mb-6">
               Finding substitutions for: <span className="underline">{selectedItem}</span>
+              <br>
+              </br>
+              Ingredient not found
             </p>
           )}
 
