@@ -23,7 +23,7 @@ async function fetchTop3ByVotes() {
     .sort((a, b) => b.votes - a.votes)
     .slice(0, 3);
 
-  // Step 3: Fetch cocktail details for top 3
+  // Step 3: Fetch cocktail details for top 3 cocktails
   const topCocktails = await Promise.all(
     topVoted.map(item =>
       fetch(`${API_BASE}/CocktailId/${item.Cocktail_ID}`)
