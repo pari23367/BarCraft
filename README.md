@@ -9,7 +9,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
 ````md
 # 🍸 CocktailApp
 
-A fast and modern cocktail discovery web app built with React, Vite, and Tailwind CSS. Users can search for cocktails, view detailed recipes, and find ingredient substitutes. Designed for responsiveness and future expandability using clean architecture and optional tools like Zustand and shadcn/ui.
+A fast & modern cocktail discovery web app built with React, Vite, and Tailwind CSS. Users can search for cocktails, view detailed recipes, and find ingredient substitutes. Designed for responsiveness and future expandability using clean architecture and optional tools like Zustand and shadcn/ui.
 
 ---
 
