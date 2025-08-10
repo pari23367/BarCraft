@@ -51,7 +51,7 @@ export default function Home() {
       <section id="aboutus" className={`section ${isDark ? "bg-[#360401] text-white" : "bg-[#ffbdbd] text-red-900"} transition-colors duration-500`}>
         <p className="text-5xl mt-15 mb-10" style={{fontFamily: 'HeadingFont'}}>About Us</p>
         <p className="text-lg px-[4rem]">
-          BarCraft is your behind-the-bar assistant, built to help bartenders find smart substitutions for cocktail ingredients in seconds. Whether you're working with a limited stock or crafting a new twist on a classic, BarCraft helps you make every drink possible—with creativity, flexibility, and confidence.
+          BarCraft is your behind-the-bar assistant, built to help bartenders find smart substitutions for cocktail ingredients in seconds. Whether you're working with a limited stock or crafting a new twist on a classic recipe, BarCraft helps you make every drink possible—with creativity, flexibility, and confidence.
           <br></br>
           <br></br>
           Born out of a passion for mixology and the real challenges bartenders face, BarCraft makes experimenting and improvising easier than ever. It’s not just about replacements—it’s about unlocking possibilities, reducing waste, and keeping the bar flowing smoothly.
