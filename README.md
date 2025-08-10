@@ -72,12 +72,12 @@ cocktail-app/
 
 ## ✨ Features
 
-* 🔍 Search cocktails by name or ingredients
-* 📑 View detailed recipes and instructions
-* 🧠 Suggest ingredient substitutes
-* 💅 Responsive UI using Tailwind CSS
-* ⚡ Fast Vite development environment
-* 📡 API-ready structure using Axios or fetch
+*  Search cocktails by name or ingredients
+*  View detailed recipes and instructions
+*  Suggest ingredient substitutes
+*  Responsive UI using Tailwind CSS
+*  Fast Vite development environment
+*  API-ready structure using Axios or fetch
 
 ---
 
@@ -135,3 +135,5 @@ const fetchCocktails = async () => {
 | Customer Screens | Driver Screens |
 |-----------|------------|
 | ![User Role](./src/assets/cocktail1.png) | ![Driver Role](./src/assets/cocktail2.png) |
+ 
+ OKAY SO IN THE SUBSittuion part- we first take input from the user of the cocktail , then the ingredient they want to substitute then we click find ; it gives the 3 ingredint which should be like 50% atleast a match  with the required ingredient ; 
