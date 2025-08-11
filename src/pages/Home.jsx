@@ -79,14 +79,19 @@ export default function Home() {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
-            className={`p-2 text-base w-[300px] mb-4 border ${isDark ? "border-gray-300 rounded" : "border-black-900 rounded"} transition-colors duration-500`}
+            className={`p-2 text-base w-[300px] border ${isDark ? "border-gray-300 rounded" : "border-black-900 rounded"} transition-colors duration-500`}
           />
+
+          <IngredientAutocomplete
+    query={inputValue}
+    onSelect={(item) => setInputValue(item)}
+  />
 
           <div className="flex flex-wrap gap-2 justify-center">
             {items.map((item, index) => (
               <button
                 key={index}
-                className={`px-4 py-1 text-2xl rounded border ${isDark ? "bg-[#913530] text-black border-black" : "bg-red-200 text-red-900 border-red-900"} transition`}
+                className={`px-4 py-1 text-xl mt-4 rounded border ${isDark ? "bg-[#913530] text-black border-black" : "bg-red-200 text-red-900 border-red-900"} transition`}
                 onClick={() => setSelectedItem(item)}
               >
                 {item}
