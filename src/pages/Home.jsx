@@ -70,7 +70,7 @@ export default function Home() {
 
       <section id="subs" className={`section ${isDark ? "w-full bg-[#360401] text-white" : "w-full bg-[#ffbdbd] text-red-900"} transition-colors duration-500`}> {/*className="w-full h-screen h-screen bg-[#FF8C8C] dark:bg-[#675959] text-black dark:text-white transition-colors duration-500">*/}
         <h2 className="text-5xl mt-10 mb-8">Find Substitutions</h2>
-        <IngredientAutocomplete/>
+       
         <h3 className='text-3xl'>Enter Your Ingredients Below-</h3>
         <div className="mt-5 mb-5 flex flex-col items-center justify-center h-full">
           <input
