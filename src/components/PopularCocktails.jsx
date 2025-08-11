@@ -5,6 +5,7 @@ import { useTheme } from '../context/ThemeContext';
 const API_BASE = "/api/cocktailRecipe-search";
 const POPULAR_IDS = ["ID_000058", "ID_000089", "ID_000145"];
 
+{/*}
 async function fetchTop3ByVotes() {
   // Step 1: Get all votes above 0
   const res = await fetch(`${API_BASE}/votes?threshold=0`);
@@ -17,10 +18,21 @@ async function fetchTop3ByVotes() {
       return [];
     }
 
+  // ✅ Change 1: Filter valid votes
+  const validVotes = voteList.filter(
+    item => item.Cocktail_ID && typeof item.Votes === "number"
+  );
+
+    // ✅ Change 2: Find the maximum vote count
+  const maxVotes = Math.max(...validVotes.map(item => item.Votes));
+
+  // ✅ Change 3: Get only cocktails with the highest vote count
+  const topVotedSameMax = validVotes.filter(item => item.Votes === maxVotes);*/}
+{/*
   // Step 2: Sort by highest votes
   const topVoted = voteList
     .filter(item => item.Cocktail_ID && typeof item.Votes === "number")
-    .sort((a, b) => b.votes - a.votes)
+    .sort((a, b) => b.Votes - a.Votes)
     .slice(0, 3);
 
   // Step 3: Fetch cocktail details for top 3 cocktails
@@ -31,11 +43,93 @@ async function fetchTop3ByVotes() {
         .then(data => data.payload?.[0])
     )
   );
-  console.log("Top voted items:", topVoted);
+  */}
+  {/*}
+  // ✅ Change 4: Shuffle the array randomly and take first 3
+  const randomTop = topVotedSameMax
+    .sort(() => Math.random() - 0.5) // shuffle
+    .slice(0, 3); // take only 3
+
+  // Step 3: Fetch cocktail details for the 3 chosen cocktails
+  const topCocktails = await Promise.all(
+    randomTop.map(item =>
+      fetch(`${API_BASE}/CocktailId/${item.Cocktail_ID}`)
+        .then(res => res.json())
+        .then(data => data.payload?.[0])
+    )
+  );
+
+  console.log("Top voted items:", randomTop);
 
   console.log("🍸 topCocktails:", topCocktails); // Add this
   return topCocktails;
+}*/}
+
+async function fetchTop3ByVotes() {
+  const res = await fetch(`${API_BASE}/votes?threshold=0`);
+  const data = await res.json();
+  console.log("🔍 Raw /votes response:", data);
+
+  const voteList = data.payload || [];
+  if (!voteList.length) {
+    console.warn("⚠️ No votes found in payload");
+    return [];
+  }
+
+  const validVotes = voteList.filter(
+    item => item.Cocktail_ID && typeof item.Votes === "number"
+  );
+
+  // Sort unique vote counts in descending order
+  const uniqueVoteCounts = [...new Set(validVotes.map(item => item.Votes))].sort((a, b) => b - a);
+
+  let selected = [];
+
+  // Go through vote groups from highest to lowest
+  for (const voteCount of uniqueVoteCounts) {
+    // Get all cocktails with this vote count
+    const group = validVotes.filter(item => item.Votes === voteCount);
+
+    // Shuffle this group so results vary each time
+    group.sort(() => Math.random() - 0.5);
+
+    // Add from this group until we hit 3 total
+    for (const cocktail of group) {
+      if (selected.length < 3) {
+        selected.push(cocktail);
+      }
+    }
+
+    if (selected.length >= 3) break;
+  }
+// Get top 4 just for logging purposes
+const top4ForLog = [...validVotes]
+  .sort((a, b) => b.Votes - a.Votes) // sort by votes descending
+  .slice(0, 4); // top 4
+
+console.log(
+  "🏅 Top 4 cocktails & votes:",
+  top4ForLog.map(item => ({
+    id: item.Cocktail_ID,
+    votes: item.Votes
+  }))
+);
+
+
+  // Fetch details for the selected cocktails
+  const topCocktails = await Promise.all(
+    selected.map(item =>
+      fetch(`${API_BASE}/CocktailId/${item.Cocktail_ID}`)
+        .then(res => res.json())
+        .then(data => data.payload?.[0])
+    )
+  );
+
+  console.log("🍸 Selected cocktails (randomised):", selected);
+  return topCocktails;
 }
+
+
 
 
 export default function PopularCocktails() {
