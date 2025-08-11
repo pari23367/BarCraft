@@ -116,7 +116,14 @@ export default function Home() {
             className={`p-2 text-base w-[300px] border ${isDark ? 'border-gray-300 rounded' : 'border-black-900 rounded'} transition-colors duration-500`}
           />
 
-          <IngredientAutocomplete query={inputValue} onSelect={(item) => setInputValue(item)} />
+          <IngredientAutocomplete
+  query={inputValue}
+  onSelect={(item) => {
+    setItems((prev) => [...prev, item]); // add suggestion as a button immediately
+    setInputValue(""); // clear search bar
+  }}
+/>
+
 
           <div className="flex flex-wrap gap-2 justify-center">
             {items.map((item, index) => (
