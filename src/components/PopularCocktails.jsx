@@ -187,11 +187,11 @@ setCocktails(filtered);
   }
 
   return (
-    <div className="mb-15 grid gap-10 sm:grid-cols-2 md:grid-cols-3 w-full px-8">
+    <div className="mb-15 grid gap-10 sm:grid-cols-2 md:grid-cols-3 w-full px-8 ">
       {cocktails.map((cocktail, idx) => (
         <div
           key={idx}
-          className={` ${isDark ? "bg-[#360401] text-white shadow-lg rounded-lg p-6" : "bg-[#ffbdbd] text-black shadow-lg rounded-lg p-6"}transition-colors duration-500`}>
+          className={` ${isDark ? "bg-[#360401] text-white shadow-lg rounded-lg p-6" : "bg-[#ffbdbd] text-black shadow-lg rounded-lg p-6"}transition-colors duration-500  transition-transform transform hover:-translate-y-2 hover:shadow-2xl`}>
           <div className="items-center justify-center mb-4 bg-white text-black">
           <h3 className="text-3xl m-7">{cocktail.Name}</h3>
           </div>

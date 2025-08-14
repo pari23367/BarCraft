@@ -86,7 +86,23 @@ export default function Home() {
         </p>
         <div className="bg-[#ffffff] h-[20px] w-full my-12"></div>
       </section>
-
+{/* Video Section */}
+<section
+  id="video"
+  className="w-full min-h-screen relative overflow-hidden"
+>
+  {/* Video background */}
+  <video
+    className="absolute top-0 left-0 w-full h-full object-cover"
+    autoPlay
+    loop
+    muted
+    playsInline
+  >
+    <source src="/videos/wine.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</section>
       {/* Popular Cocktails */}
       <section
         id="popular"
@@ -117,13 +133,12 @@ export default function Home() {
           />
 
           <IngredientAutocomplete
-  query={inputValue}
-  onSelect={(item) => {
-    setItems((prev) => [...prev, item]); // add suggestion as a button immediately
-    setInputValue(""); // clear search bar
-  }}
-/>
-
+            query={inputValue}
+            onSelect={(item) => {
+              setItems((prev) => [...prev, item]); // add suggestion as a button immediately
+              setInputValue(""); // clear search bar
+            }}
+          />
 
           <div className="flex flex-wrap gap-2 justify-center">
             {items.map((item, index) => (
@@ -138,14 +153,35 @@ export default function Home() {
           </div>
 
           {selectedItem && (
-            <div className="mt-6 text-xl font-semibold mb-6 text-center">
+            <div className="mt-6 text-xl font-semibold mb-6 text-center w-full">
               Finding substitutions for: <span className="underline">{selectedItem}</span>
               {loading && <p className="mt-2 text-base">Loading...</p>}
               {error && <p className="mt-2 text-base text-red-500">{error}</p>}
+              
+              {/* Glassmorphism Cards */}
               {subsData && (
-                <pre className="mt-4 bg-white text-black p-4 rounded text-left max-w-[500px] overflow-x-auto">
-                  {JSON.stringify(subsData, null, 2)}
-                </pre>
+                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-6">
+                  {subsData.topSimilarEntities?.map((entity, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 rounded-2xl border border-white/20 
+                                 bg-white/10 backdrop-blur-md 
+                                 shadow-lg text-red-900
+                                 transition transform hover:scale-105 hover:shadow-2xl"
+                    >
+                      <h3 className="text-xl font-bold mb-2">{entity.entity_name}</h3>
+                      <p className="text-sm text-gray-200">{entity.category}</p>
+                      <a
+                        href={entity.wikipedia}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-block text-sm text-red-300 hover:text-red-400 transition-colors"
+                      >
+                        Learn more →
+                      </a>
+                    </div>
+                  ))}
+                </div>
               )}
             </div>
           )}
