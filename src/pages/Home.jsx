@@ -84,7 +84,7 @@ export default function Home() {
           <br />
           Born out of a passion for mixology and the real challenges bartenders face, BarCraft makes experimenting and improvising easier than ever. It’s not just about replacements—it’s about unlocking possibilities, reducing waste, and keeping the bar flowing smoothly.
         </p>
-        <div className="bg-[#ffffff] h-[20px] w-full my-12"></div>
+        <div className="bg-[#360401] h-[20px] w-full my-12"></div>
       </section>
 {/* Video Section */}
 <section
@@ -191,7 +191,7 @@ export default function Home() {
       {/* Contact */}
       <section
         id="section5"
-        className={`section ${isDark ? 'w-full bg-black text-white' : 'w-full bg-white text-red-900'} transition-colors duration-500 px-22 py-16`}
+        className={`section ${isDark ? 'w-full bg-[#360401] text-white' : 'w-full bg-[#ffbdbd] text-red-900'} transition-colors duration-500 px-22 py-16`}
       >
         <h2 className="text-5xl font-bold mb-12 text-center">Contact Us</h2>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12">
