@@ -1,19 +1,11 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
- 
-
+# BarCraft
 ---
- 
 
-````md
-# 🍸 CocktailApp
-
-A fast & modern cocktail discovery web app built with React, Vite, and Tailwind CSS. Users can search for cocktails, view detailed recipes, and find ingredient substitutes. Designed for responsiveness and future expandability using clean architecture and optional tools like Zustand and shadcn/ui.
+A fast & modern cocktail discovery web app built with React, Vite, and Tailwind CSS. Users can search for cocktails, view detailed recipes, and find ingredient substitutes. Designed for responsiveness and future expandability using clean architecture.
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 | Tool            | Purpose                                                                 |
 |------------------|-------------------------------------------------------------------------|
@@ -21,13 +13,10 @@ A fast & modern cocktail discovery web app built with React, Vite, and Tailwind 
 | Vite             | Build tool for fast development and hot module reload                   |
 | Tailwind CSS     | Utility-based CSS for styling responsive UIs quickly                    |
 | React Router     | Adds navigation between pages without full reload                       |
-| Axios            | Makes API calls easier and cleaner than native `fetch()`                |
-| Zustand          | Lightweight tool for global state (like a selected cocktail)            |
-| shadcn/ui        | Ready-to-use stylish UI components built with Tailwind (e.g., buttons)  |
 
 ---
 
-## 📦 Getting Started
+## Getting Started
 
 ### 1. Clone the repository
 
@@ -52,41 +41,41 @@ Visit **[http://localhost:5173](http://localhost:5173)** in your browser.
 
 ---
 
-## 🧱 Project Structure
+## Project Structure
 
 ```
 cocktail-app/
 ├── public/             # Static assets
 ├── src/
+│   ├── assets/         # Visual assets such as images, videos, fonts etc.
 │   ├── components/     # Reusable components (e.g., Navbar, Card)
+│   ├── context/        # Global state
+│   ├── data/           # Data about ingredients (tentative)
 │   ├── pages/          # Pages (Search, Details, Substitutes, etc.)
-│   ├── context/ or store/  # Global state (Zustand or React Context if used)
 │   ├── App.jsx         # App layout and nav
+│   ├── App.css         # App layout and nav
 │   ├── main.jsx        # App entry point
 │   └── index.css       # Tailwind CSS entry
 ├── tailwind.config.js  # Tailwind configuration
+├── index.html          # Layout
 └── README.md
 ```
 
 ---
 
-## ✨ Features
+## Features
 
-*  Search cocktails by name or ingredients
-*  View detailed recipes and instructions
+*  Search cocktails by name
+*  View detailed recipes and instructions for popular cocktails
 *  Suggest ingredient substitutes
 *  Responsive UI using Tailwind CSS
 *  Fast Vite development environment
-*  API-ready structure using Axios or fetch
 
 ---
 
 ## 📡 API Usage
 
-You can connect to public APIs like:
-
-* **Receptedb API** – For cocktail recipe data
-* **Flavordb API** – For ingredient properties and substitutes
+You can connect to public APIs-
 
 Example (with `fetch()`):
 
@@ -107,33 +96,11 @@ const fetchCocktails = async () => {
 };
 ```
 
----
+## User Interface
 
-## 🌿 Optional Enhancements
-
- 
-* **Zustand or React Context** — Manage global state like "selected cocktail" across routes
-* **shadcn/ui** — Use stylish UI components to save time on design
-
----
-
-## 📚 Resources
-
-* [Tailwind CSS Docs](https://tailwindcss.com/docs)
-* [React Router Docs](https://reactrouter.com/)
-* [Axios Docs](https://axios-http.com/docs/intro)
-* [Zustand Docs](https://github.com/pmndrs/zustand)
-* [shadcn/ui Docs](https://ui.shadcn.com/docs)
-
- 
----
-
-
-
-## Planned UI
-
-| Customer Screens | Driver Screens |
+| Light Mode | Dark Mode |
 |-----------|------------|
-| ![User Role](./src/assets/cocktail1.png) | ![Driver Role](./src/assets/cocktail2.png) |
+| ![Light Home](./src/assets/light1.png) | ![Dark Home](./src/assets/dark1.png) |
+| ![Light Subs](./src/assets/light2.png) | ![Dark Subs](./src/assets/dark2.png) |
  
  OKAY SO IN THE SUBSittuion part- we first take input from the user of the cocktail , then the ingredient they want to substitute then we click find ; it gives the 3 ingredint which should be like 50% atleast a match  with the required ingredient ; 
