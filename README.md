@@ -16,6 +16,15 @@ A fast & modern cocktail discovery web app built with React, Vite, and Tailwind 
 
 ---
 
+## User Interface
+
+| Light Mode | Dark Mode |
+|-----------|------------|
+| ![Light Home](./src/assets/light1.png) | ![Dark Home](./src/assets/dark1.png) |
+| ![Light Subs](./src/assets/light2.png) | ![Dark Subs](./src/assets/dark2.png) |
+
+---
+
 ## Getting Started
 
 ### 1. Clone the repository
@@ -73,7 +82,7 @@ cocktail-app/
 
 ---
 
-## 📡 API Usage
+## API Usage
 
 You can connect to public APIs-
 
@@ -95,12 +104,23 @@ const fetchCocktails = async () => {
   return res.data;
 };
 ```
+---
 
-## User Interface
+We hope you enjoy using BarCraft as much as we enjoyed creating it!
 
-| Light Mode | Dark Mode |
-|-----------|------------|
-| ![Light Home](./src/assets/light1.png) | ![Dark Home](./src/assets/dark1.png) |
-| ![Light Subs](./src/assets/light2.png) | ![Dark Subs](./src/assets/dark2.png) |
- 
- OKAY SO IN THE SUBSittuion part- we first take input from the user of the cocktail , then the ingredient they want to substitute then we click find ; it gives the 3 ingredint which should be like 50% atleast a match  with the required ingredient ; 
+
+```
+  _
+ {_}
+ |(|
+ |=|
+/   \
+|.--|
+||  |
+||  |    .    ' .
+|'--|  '     \~~~/
+'-=-' \~~~/   \_/
+       \_/     Y
+        Y     _|_
+       _|_
+```
