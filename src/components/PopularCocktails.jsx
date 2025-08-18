@@ -183,16 +183,16 @@ setCocktails(filtered);
   }
 
   if (!cocktails.length) {
-    return <p className="text-center text-red-600 text-lg">Loading popular cocktails…</p>;
+    return <p className="text-center text-red-900 text-lg mb-10">Loading popular cocktails…</p>;
   }
 
   return (
-    <div className="mb-15 grid gap-10 sm:grid-cols-2 md:grid-cols-3 w-full px-8 ">
+    <div className="mb-15 grid gap-10 sm:grid-cols-2 md:grid-cols-3 w-full px-8">
       {cocktails.map((cocktail, idx) => (
         <div
           key={idx}
           className={` ${isDark ? "bg-[#360401] text-white shadow-lg rounded-lg p-6" : "bg-[#ffbdbd] text-black shadow-lg rounded-lg p-6"}transition-colors duration-500  transition-transform transform hover:-translate-y-2 hover:shadow-2xl`}>
-          <div className="items-center justify-center mb-4 bg-white text-black">
+          <div className={` ${isDark ? "items-center justify-center mb-4 bg-red-200 text-black":"items-center justify-center mb-4 bg-white text-black"}`}>
           <h3 className="text-3xl m-7">{cocktail.Name}</h3>
           </div>
           <p className="text-xl"><strong>Method:</strong> {cocktail.Method || "Unknown"}</p>

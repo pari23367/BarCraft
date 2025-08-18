@@ -24,8 +24,10 @@ export default function Substitutes() {
           },
           body: JSON.stringify({ ingredients: updatedItems }),
         });
+        console.log("Making API call to:", `${API_BASE}/ingredients`);
 
-        const data = await response.json();
+        let data = await response.json();
+
         setResult(data);
       } catch (error) {
         console.error('Error calling cocktail API:', error);

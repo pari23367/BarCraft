@@ -5,6 +5,7 @@ import { useTheme } from '../context/ThemeContext';
 import '../App.css';
 import PopularCocktails from '../components/PopularCocktails';
 import IngredientAutocomplete from '../components/IngredientAutocomplete';
+import { useInView } from "react-intersection-observer"
 
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
@@ -14,6 +15,10 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { isDark } = useTheme();
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && inputValue.trim() !== '') {
@@ -39,8 +44,19 @@ export default function Home() {
       if (!res.ok) {
         throw new Error(`Server error: ${res.status}`);
       }
-      const data = await res.json();
-      setSubsData(data);
+      let data = await res.json();
+
+    // Remove "Tea" from topSimilarEntities if present
+    if (Array.isArray(data.topSimilarEntities)) {
+      data = {
+        ...data,
+        topSimilarEntities: data.topSimilarEntities.filter(
+          item => item.entity_name?.trim().toLowerCase() !== "tea"
+        )
+      };
+    }
+
+    setSubsData(data);
     } catch (err) {
       setError(err.message || 'Failed to fetch substitutions');
     } finally {
@@ -71,21 +87,40 @@ export default function Home() {
       </section>
 
       {/* About Us */}
-      <section
-        id="aboutus"
-        className={`section ${isDark ? 'bg-[#360401] text-white' : 'bg-[#ffbdbd] text-red-900'} transition-colors duration-500`}
-      >
-        <p className="text-5xl mt-15 mb-10" style={{ fontFamily: 'HeadingFont' }}>
-          About Us
-        </p>
-        <p className="text-lg px-[4rem]">
-          BarCraft is your behind-the-bar assistant, built to help bartenders find smart substitutions for cocktail ingredients in seconds. Whether you're working with a limited stock or crafting a new twist on a classic recipe, BarCraft helps you make every drink possible—with creativity, flexibility, and confidence.
-          <br />
-          <br />
-          Born out of a passion for mixology and the real challenges bartenders face, BarCraft makes experimenting and improvising easier than ever. It’s not just about replacements—it’s about unlocking possibilities, reducing waste, and keeping the bar flowing smoothly.
-        </p>
-        <div className="bg-[#360401] h-[20px] w-full my-12"></div>
-      </section>
+<section
+  id="aboutus"
+  className={`
+    section
+    ${isDark ? "bg-[#360401] text-white" : "bg-[#ffbdbd] text-red-900"}
+    transition-colors duration-500
+  `}
+>
+  {/* Animated text wrapper */}
+  <div
+    ref={ref}
+    className={`
+      transform transition-all duration-1000 ease-out
+      ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+    `}
+  >
+    <p className="text-5xl mt-15 mb-10" style={{ fontFamily: "HeadingFont" }}>
+      About Us
+    </p>
+    <p className="text-lg px-[4rem] mb-12">
+      BarCraft is your behind-the-bar assistant, built to help bartenders find
+      smart substitutions for cocktail ingredients in seconds. Whether you're
+      working with a limited stock or crafting a new twist on a classic recipe,
+      BarCraft helps you make every drink possible—with creativity, flexibility,
+      and confidence.
+      <br />
+      <br />
+      Born out of a passion for mixology and the real challenges bartenders face,
+      BarCraft makes experimenting and improvising easier than ever. It’s not just
+      about replacements—it’s about unlocking possibilities, reducing waste, and
+      keeping the bar flowing smoothly.
+    </p>
+  </div>
+</section>
 {/* Video Section */}
 <section
   id="video"
@@ -106,7 +141,7 @@ export default function Home() {
       {/* Popular Cocktails */}
       <section
         id="popular"
-        className={`section ${isDark ? 'w-full bg-[#000000] text-white' : 'w-full bg-[#ffffff] text-red-900'} transition-colors duration-500`}
+        className={`section ${isDark ? 'w-full bg-[#000000] text-red-200' : 'w-full bg-[#ffffff] text-red-900'} transition-colors duration-500`}
       >
         <div>
           <h1 className="text-5xl m-15">Some Popular Cocktails</h1>
@@ -153,7 +188,7 @@ export default function Home() {
           </div>
 
           {selectedItem && (
-            <div className="mt-6 text-xl font-semibold mb-6 text-center w-full">
+            <div className="mt-6 text-xl font-semibold mb-15 text-center w-full">
               Finding substitutions for: <span className="underline">{selectedItem}</span>
               {loading && <p className="mt-2 text-base">Loading...</p>}
               {error && <p className="mt-2 text-base text-red-500">{error}</p>}
@@ -169,13 +204,13 @@ export default function Home() {
                                  shadow-lg text-red-900
                                  transition transform hover:scale-105 hover:shadow-2xl"
                     >
-                      <h3 className="text-xl font-bold mb-2">{entity.entity_name}</h3>
-                      <p className="text-sm text-gray-200">{entity.category}</p>
+                      <h3 className={` ${isDark ? "text-white text-xl font-bold mb-2":"text-red-900 text-xl font-bold mb-2"}`}>{entity.entity_name}</h3>
+                      <p className={` ${isDark ? "text-white text-sm":"text-red-900 text-sm"}`}>{entity.category}</p>
                       <a
                         href={entity.wikipedia}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-3 inline-block text-sm text-red-300 hover:text-red-400 transition-colors"
+                        className={` ${isDark ?"mt-3 inline-block text-sm text-red-300 hover:text-red-400 transition-colors":"mt-3 inline-block text-sm text-red-900 hover:text-red-400 transition-colors"}`}
                       >
                         Learn more →
                       </a>
@@ -191,7 +226,7 @@ export default function Home() {
       {/* Contact */}
       <section
         id="section5"
-        className={`section ${isDark ? 'w-full bg-[#360401] text-white' : 'w-full bg-[#ffbdbd] text-red-900'} transition-colors duration-500 px-22 py-16`}
+        className={`section ${isDark ? 'w-full bg-[#000000] text-white' : 'w-full bg-[#ffffff] text-red-900'} transition-colors duration-500 px-22 py-16`}
       >
         <h2 className="text-5xl font-bold mb-12 text-center">Contact Us</h2>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12">
