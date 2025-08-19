@@ -40,7 +40,7 @@ export default function Home() {
     setError(null);
     setLoading(true);
     try {
-      const res = await fetch(`http://192.168.1.92:9207/api/food/by-alias/${ingredient}`);
+      const res = await fetch(`${import.meta.env.VITE_SUBS}/api/food/by-alias/${ingredient}`);
       if (!res.ok) {
         throw new Error(`Server error: ${res.status}`);
       }
@@ -118,6 +118,15 @@ export default function Home() {
       BarCraft makes experimenting and improvising easier than ever. It’s not just
       about replacements—it’s about unlocking possibilities, reducing waste, and
       keeping the bar flowing smoothly.
+    </p>
+
+    <p className="text-4xl mt-15 mb-5" style={{ fontFamily: "HeadingFont" }}>
+      How To Use
+    </p>
+    <p className="text-lg px-[4rem] mb-12">
+      Enter the ingredients you have on hand in the search bar below.<br></br>
+      The entered ingredients will appear as buttons.<br></br>
+      Click on any ingredient button to find smart substitutions!
     </p>
   </div>
 </section>
