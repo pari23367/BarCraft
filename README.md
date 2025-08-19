@@ -105,6 +105,12 @@ const fetchCocktails = async () => {
 };
 ```
 ---
+### Project Advisor
+Prof. Ganesh Bagler
+
+### Contributers
+- Anouska Sahoo
+- Paridhi Kotarya
 
 We hope you enjoy using BarCraft as much as we enjoyed creating it!
 
